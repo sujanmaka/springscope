@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id = "emailService" class="edu.cs544.sujan.spring.scopes.services.EmailServicePractice" scope="singleton" lazy-init="true">
+        <constructor-arg ref="logger"/>
+    </bean>
+    <bean id="logger" class="edu.cs544.sujan.spring.scopes.services.DBLogger" scope="prototype"/>
+
+    <bean id="prototypeDestroy" class="edu.cs544.sujan.spring.scopes.services.PrototypeDestroy"
+          destroy-method="destroy" ></bean>
+</beans>
